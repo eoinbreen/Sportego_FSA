@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<h1>
+  <%= @user.username %>
+</h1>
+<h2>Member Since: <%= @user.created_at %></h2>
+
+<h2>Current Balance: <%= @user.balance %> </h2>
+
+<%= content_tag(:button, "Add Funds", :type => :submit)%>
+<%= content_tag(:button, "Withdraw Funds", :type => :submit)%>
+
+<p>Tournaments Entered: </p>
+<p>Tournaments Won: </p>
+<br>
+<p>Total Paid in: </p>
+<p>Total Won: </p>
+
+<div class="form">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+     
+      <br>
+      <%= f.label :card %>
+      <%= f.collection_select :card, User::CARDS, :to_s, :to_s, :include_blank => true%>
+      
+      <%end%>
+
+</div>
+
