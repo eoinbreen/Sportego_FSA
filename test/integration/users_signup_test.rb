@@ -7,7 +7,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post users_path, user: {  name:  "",
                                 email: "user@invalid",
                                 username:   "",
-                                password_digest:              "foo",
+                                password:              "foo",
+                                password_confirmation:              "foo",
                                 country:   "",
                                 dob: ''}
     end
@@ -20,11 +21,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post_via_redirect users_path, user: { name:  "Example User",
                                             email: "user@example.com",
                                             username: "ExampleUser",
-                                            password_digest:              "password",
+                                            password:              "password",
+                                            password_confirmation:              "password",
                                             country: "Ireland",
                                             dob: '18-05-92'
                                             }
     end
     assert_template 'users/show'
+    assert is_logged_in?
   end
 end

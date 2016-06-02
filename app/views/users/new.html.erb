@@ -2,7 +2,7 @@
 <h1>Sign up</h1>
 
 <div class="form">
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user, html: { multipart: true } do |f| %>
       <%= render 'shared/error_messages' %>
         
       <%= f.text_field :name, :placeholder => "Name", class: 'form-control' %>
@@ -11,9 +11,9 @@
      
       <%= f.email_field :email, :placeholder => "Email", class: 'form-control' %>
       
-      <%= f.password_field :password_digest , :placeholder => "Password (6-20 Characters)", class: 'form-control' %>
+      <%= f.password_field :password , :placeholder => "Password (6-20 Characters)", class: 'form-control' %>
      
-      <%= f.password_field :password_digest , :placeholder => "Password Conformation", class: 'form-control' %>
+      <%= f.password_field :password_confirmation , :placeholder => "Password Confirmation", class: 'form-control' %>
      
       <br>
       <%= f.label :country %>
@@ -24,7 +24,10 @@
           use_month_numbers: true,
           order: [:day, :month, :year],
           start_year: 1900%>
-      
+          
+      <br>
+      <%= f.label :profile_pic %>
+      <%= f.file_field :profile_pic%>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
