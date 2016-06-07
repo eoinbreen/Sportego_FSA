@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'bcrypt',               '3.1.7'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'faker',                '1.4.2'
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # Use SCSS for stylesheets

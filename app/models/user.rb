@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
     
     attr_accessor :remember_token
     
-    has_attached_file :profile_pic, styles: { medium: "200x200>"}
+    has_attached_file :profile_pic, styles: { medium: "200x200>", small: "50x50>"}, default_url:  ('default_profile_pic_:style.png')
+    has_attached_file :attach
     validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
     
     validates :name, presence: true, length: { maximum: 50 }
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
     validates :username, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, presence: true, length: { minimum: 6, maximum: 20 }
+    validates :password, presence: true, length: { minimum: 6, maximum: 20}, allow_nil: true
     validates :country, presence: true
     
     # Returns the hash digest of the given string.
