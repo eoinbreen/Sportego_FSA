@@ -1,8 +1,21 @@
 <% provide(:title, 'All users') %>
+<section class="container">
+  <div class="row">
+    <section class="col-sm-4">
+      <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+          <%= submit_tag "Search" %>
+      <% end %>
+    </section>
+    <section class="col-sm-4">
+      <h1>All users</h1>
+    </section>
+  </div>
+</section>
 
 
-<h1>All users</h1>
-
+<br>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <ul class="users">
   <% @users.each do |user| %>
     <li>
