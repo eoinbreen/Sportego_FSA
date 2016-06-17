@@ -5,6 +5,8 @@
 
 body {
   padding-top: 60px;
+  background-color: #302B26;
+  color: white;
 }
 
 section {
@@ -15,6 +17,13 @@ textarea {
   resize: vertical;
 }
 
+button{
+  color: black;
+}
+
+.jumbotron{
+  background-color: #302B26;
+}
 .center {
   text-align: center;
 }
@@ -100,6 +109,8 @@ footer ul li {
 
 .form {
   text-align:center;
+  color:black;
+  background-color: #302B26;
   margin: 0 auto 10px;
   padding: 20px 0 10px 0;
   font-size: 16px;
@@ -109,12 +120,13 @@ footer ul li {
 input[type=text],
 input[type=email],
 input[type=password] {
+  background-color: #302B26;
   color: #666666;
   width: 100%;
-  border: 1px solid #E6E6E6;
-  border-radius: 0px; 
-  height: 60px;
-  margin: 6px auto;
+/* border: 1px solid #E6E6E6;
+  border-radius: 0px; */
+  height: 50px;
+  margin: 10px auto;
   text-indent: 10px;
 }
 
@@ -164,6 +176,10 @@ input[type=password] {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.search_btn{
+  margin-top: 20px;
 }
 
 

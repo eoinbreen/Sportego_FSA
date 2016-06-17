@@ -11,7 +11,9 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar",
              country: "Ireland",
-             dob:'01/01/1990')
+             dob:'01/01/1990',
+             activated: true,
+             activated_at: Time.zone.now)
 
 99.times do |n|
   name  = Faker::Name.name
@@ -20,11 +22,13 @@ User.create!(name:  "Example User",
   username=name.delete(' ')
   dob = '05/02/1991'
     
-  User.create!(name:  name,
-               username: username,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               country: "England",
-               dob:dob)
+  User.create!( name:  name,
+                username: username,
+                email: email,
+                password:              password,
+                password_confirmation: password,
+                country: "England",
+                dob:dob,
+                activated: true,
+                activated_at: Time.zone.now)
 end
